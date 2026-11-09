@@ -3,7 +3,7 @@
 **Reliable Tech. Clear Solutions.**
 Official website for SAANVIKA TECHNOLOGIES, a computer repair, computer services and IT support business in Madhurawada, Visakhapatnam, Andhra Pradesh.
 
-- **Live site (GitHub Pages):** https://saanvikatechnologies.github.io/Website/
+- **Live site:** https://www.saanvikatechnologies.com/ (GitHub Pages, custom domain; DNS at GoDaddy)
 - **Google Maps listing:** https://maps.app.goo.gl/uBvAg1Kp8fdG1vbHA
 
 ---
@@ -52,11 +52,21 @@ Then open http://localhost:8080/. Opening `index.html` directly also works for m
 
 Only the public files are deployed (`index.html`, `404.html`, `assets/`, `robots.txt`, `sitemap.xml`, `site.webmanifest`). The `docs/` folder stays in the repo only.
 
-### Using a custom domain later
+### Custom domain (www.saanvikatechnologies.com)
 
-1. Add the domain under **Settings → Pages → Custom domain** and set the DNS records GitHub shows.
-2. Replace `https://saanvikatechnologies.github.io/Website/` with the new domain in `index.html` (canonical, Open Graph, JSON-LD), `sitemap.xml` and `robots.txt`.
-3. In `404.html`, change `/Website/` to `/`.
+The custom domain is set under **Settings → Pages → Custom domain**. The DNS records are managed at GoDaddy:
+
+| Type | Name | Value |
+|---|---|---|
+| CNAME | `www` | `saanvikatechnologies.github.io` |
+| A | `@` | `185.199.108.153` |
+| A | `@` | `185.199.109.153` |
+| A | `@` | `185.199.110.153` |
+| A | `@` | `185.199.111.153` |
+
+No other A records (such as GoDaddy's "Parked" record) or domain forwarding should exist for `@`. Once DNS resolves, tick **Enforce HTTPS** in the Pages settings.
+
+The site's canonical URL is `https://www.saanvikatechnologies.com/`. It is used in `index.html` (canonical, Open Graph, JSON-LD), `sitemap.xml` and `robots.txt`.
 
 ## Regenerating PNG images
 

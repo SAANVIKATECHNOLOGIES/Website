@@ -10,6 +10,7 @@ These items were **left out on purpose** or are **disabled** until the owner con
 - [x] Address: Plot No. 401, Sri Gayatri Nivas, Near Big Basket, Chandrampalem, Srinivasa Nagar, Madhurawada, Visakhapatnam, Andhra Pradesh – 530041
 - [x] Phone and WhatsApp: +91 88863 33367
 - [x] Google Maps listing link
+- [x] Domain: www.saanvikatechnologies.com
 - [x] Services: *Computer Repair & Services*, *IT Consulting & Support*
 
 ## ⏳ Waiting for confirmation
@@ -30,7 +31,7 @@ These items were **left out on purpose** or are **disabled** until the owner con
 | Map coordinates (geo) | `index.html` JSON-LD | Optional: add `"geo": {"@type":"GeoCoordinates","latitude":…,"longitude":…}` from the listing |
 | Google rating / review count | Reviews section | Deliberately **not shown**. Only add it if you are prepared to keep it current. The "Read Customer Reviews" button links to the live listing instead. |
 | Social media profiles | Footer in `index.html`, and `sameAs` in the JSON-LD | Add only official accounts |
-| Custom domain | See README → "Using a custom domain later" | |
+| Custom domain DNS | GoDaddy DNS. See README → "Custom domain" | Then enable **Enforce HTTPS** in Settings → Pages |
 | Logo approval | `assets/brand/` | See `docs/BRAND.md` and `docs/brand-sheet.html` |
 
 ## 🚫 Deliberately not stated anywhere
