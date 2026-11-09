@@ -1,0 +1,15 @@
+{
+  "name": "SAANVIKA TECHNOLOGIES",
+  "short_name": "SAANVIKA",
+  "description": "Computer repair & IT support in Madhurawada, Visakhapatnam.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "browser",
+  "background_color": "#FFFFFF",
+  "theme_color": "#101D35",
+  "icons": [
+    { "src": "assets/brand/favicon.svg", "sizes": "any", "type": "image/svg+xml" },
+    { "src": "assets/img/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" },
+    { "src": "assets/img/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 72" width="320" height="72" role="img" aria-labelledby="t">
+  <title id="t">SAANVIKA TECHNOLOGIES</title>
+  <g transform="translate(4 4)">
+    <g fill="none" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M44 12H22l-8 8v1l7 7h23" stroke="#101D35"/>
+      <path d="M20 36h23l7 7v1l-8 8H20" stroke="#18B7A7"/>
+    </g>
+    <circle cx="48" cy="12" r="4.5" fill="#101D35"/>
+    <circle cx="16" cy="52" r="4.5" fill="#18B7A7"/>
+  </g>
+  <g font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif">
+    <text x="80" y="39" font-size="29" font-weight="700" letter-spacing="2.6" fill="#101D35">SAANVIKA</text>
+    <text x="81" y="58" font-size="11.5" font-weight="600" letter-spacing="5.2" fill="#778397">TECHNOLOGIES</text>
+  </g>
+</svg>
