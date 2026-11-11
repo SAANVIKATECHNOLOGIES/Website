@@ -55,6 +55,127 @@
     hl.hidden = false;
   }
 
+  /* ---------- Hero Services Auto-Scrolling Carousel ---------- */
+  var carouselContainer = document.getElementById("hero-carousel-container");
+  var carouselTrack = document.getElementById("hero-carousel-track");
+  var prevBtn = document.getElementById("hero-carousel-prev");
+  var nextBtn = document.getElementById("hero-carousel-next");
+  var dotsContainer = document.getElementById("hero-carousel-dots");
+
+  if (carouselContainer && carouselTrack) {
+    var cards = carouselTrack.querySelectorAll(".hero-slide-card");
+    var autoTimer = null;
+    var isPaused = false;
+
+    function getCardStep() {
+      var firstCard = cards[0];
+      if (!firstCard) return 350;
+      return firstCard.offsetWidth + 20; // width + gap
+    }
+
+    function updateDots() {
+      if (!dotsContainer || cards.length === 0) return;
+      var step = getCardStep();
+      var activeIndex = Math.round(carouselContainer.scrollLeft / step);
+      if (activeIndex >= cards.length) activeIndex = cards.length - 1;
+      if (activeIndex < 0) activeIndex = 0;
+      var allDots = dotsContainer.querySelectorAll(".carousel-dot");
+      allDots.forEach(function (dot, idx) {
+        dot.classList.toggle("active", idx === activeIndex);
+        dot.setAttribute("aria-selected", idx === activeIndex ? "true" : "false");
+      });
+    }
+
+    // Generate indicator dots
+    if (dotsContainer && cards.length > 0) {
+      dotsContainer.innerHTML = Array.prototype.map.call(cards, function (_, idx) {
+        return '<button class="carousel-dot' + (idx === 0 ? ' active' : '') + '" type="button" role="tab" aria-label="Go to service slide ' + (idx + 1) + '" aria-selected="' + (idx === 0 ? 'true' : 'false') + '"></button>';
+      }).join("");
+
+      dotsContainer.addEventListener("click", function (e) {
+        var dot = e.target.closest(".carousel-dot");
+        if (!dot) return;
+        var dotIndex = Array.prototype.indexOf.call(dotsContainer.children, dot);
+        if (dotIndex !== -1) {
+          carouselContainer.scrollTo({ left: dotIndex * getCardStep(), behavior: "smooth" });
+          resetAutoScroll();
+        }
+      });
+    }
+
+    // Scroll forward (right to left movement)
+    function scrollNext() {
+      var maxScroll = carouselContainer.scrollWidth - carouselContainer.clientWidth;
+      if (carouselContainer.scrollLeft >= maxScroll - 20) {
+        carouselContainer.scrollTo({ left: 0, behavior: "smooth" });
+      } else {
+        carouselContainer.scrollBy({ left: getCardStep(), behavior: "smooth" });
+      }
+    }
+
+    // Scroll backward
+    function scrollPrev() {
+      if (carouselContainer.scrollLeft <= 20) {
+        var maxScroll = carouselContainer.scrollWidth - carouselContainer.clientWidth;
+        carouselContainer.scrollTo({ left: maxScroll, behavior: "smooth" });
+      } else {
+        carouselContainer.scrollBy({ left: -getCardStep(), behavior: "smooth" });
+      }
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener("click", function () {
+        scrollNext();
+        resetAutoScroll();
+      });
+    }
+
+    if (prevBtn) {
+      prevBtn.addEventListener("click", function () {
+        scrollPrev();
+        resetAutoScroll();
+      });
+    }
+
+    function startAutoScroll() {
+      stopAutoScroll();
+      autoTimer = setInterval(function () {
+        if (!isPaused) {
+          scrollNext();
+        }
+      }, 3500);
+    }
+
+    function stopAutoScroll() {
+      if (autoTimer) {
+        clearInterval(autoTimer);
+        autoTimer = null;
+      }
+    }
+
+    function resetAutoScroll() {
+      stopAutoScroll();
+      startAutoScroll();
+    }
+
+    // Pause on hover or touch
+    carouselContainer.addEventListener("mouseenter", function () { isPaused = true; });
+    carouselContainer.addEventListener("mouseleave", function () { isPaused = false; });
+    carouselContainer.addEventListener("touchstart", function () { isPaused = true; }, { passive: true });
+    carouselContainer.addEventListener("touchend", function () {
+      setTimeout(function () { isPaused = false; }, 1000);
+    }, { passive: true });
+
+    // Update active dot on scroll
+    var scrollDebounce = null;
+    carouselContainer.addEventListener("scroll", function () {
+      if (scrollDebounce) clearTimeout(scrollDebounce);
+      scrollDebounce = setTimeout(updateDots, 60);
+    }, { passive: true });
+
+    startAutoScroll();
+  }
+
   /* ---------- Services ---------- */
   var sg = document.getElementById("services-grid");
   var filterContainer = document.getElementById("category-filters");
