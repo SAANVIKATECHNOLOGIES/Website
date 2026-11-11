@@ -55,125 +55,152 @@
     hl.hidden = false;
   }
 
-  /* ---------- Hero Services Auto-Scrolling Carousel ---------- */
-  var carouselContainer = document.getElementById("hero-carousel-container");
-  var carouselTrack = document.getElementById("hero-carousel-track");
-  var prevBtn = document.getElementById("hero-carousel-prev");
-  var nextBtn = document.getElementById("hero-carousel-next");
-  var dotsContainer = document.getElementById("hero-carousel-dots");
+  /* ============================================================
+     Hero Full-Screen Image Slider
+     ============================================================ */
+  var hsTrack   = document.getElementById("hs-track");
+  var hsPrev    = document.getElementById("hs-prev");
+  var hsNext    = document.getElementById("hs-next");
+  var hsDotsEl  = document.getElementById("hs-dots");
+  var hsBar     = document.getElementById("hs-progress-bar");
 
-  if (carouselContainer && carouselTrack) {
-    var cards = carouselTrack.querySelectorAll(".hero-slide-card");
-    var autoTimer = null;
-    var isPaused = false;
+  if (hsTrack) {
+    var hsSlides   = Array.prototype.slice.call(hsTrack.querySelectorAll(".hs-slide"));
+    var hsTotal    = hsSlides.length;
+    var hsCurrent  = 0;
+    var hsTimer    = null;
+    var hsPaused   = false;
+    var hsInterval = 4500; // ms per slide
 
-    function getCardStep() {
-      var firstCard = cards[0];
-      if (!firstCard) return 350;
-      return firstCard.offsetWidth + 20; // width + gap
-    }
-
-    function updateDots() {
-      if (!dotsContainer || cards.length === 0) return;
-      var step = getCardStep();
-      var activeIndex = Math.round(carouselContainer.scrollLeft / step);
-      if (activeIndex >= cards.length) activeIndex = cards.length - 1;
-      if (activeIndex < 0) activeIndex = 0;
-      var allDots = dotsContainer.querySelectorAll(".carousel-dot");
-      allDots.forEach(function (dot, idx) {
-        dot.classList.toggle("active", idx === activeIndex);
-        dot.setAttribute("aria-selected", idx === activeIndex ? "true" : "false");
-      });
-    }
-
-    // Generate indicator dots
-    if (dotsContainer && cards.length > 0) {
-      dotsContainer.innerHTML = Array.prototype.map.call(cards, function (_, idx) {
-        return '<button class="carousel-dot' + (idx === 0 ? ' active' : '') + '" type="button" role="tab" aria-label="Go to service slide ' + (idx + 1) + '" aria-selected="' + (idx === 0 ? 'true' : 'false') + '"></button>';
+    /* ---- Build dots ---- */
+    if (hsDotsEl && hsTotal > 0) {
+      hsDotsEl.innerHTML = hsSlides.map(function (_, i) {
+        return '<button class="hs-dot' + (i === 0 ? " active" : "") +
+               '" type="button" role="tab" aria-label="Go to slide ' + (i + 1) + '"></button>';
       }).join("");
-
-      dotsContainer.addEventListener("click", function (e) {
-        var dot = e.target.closest(".carousel-dot");
+      hsDotsEl.addEventListener("click", function (e) {
+        var dot = e.target.closest(".hs-dot");
         if (!dot) return;
-        var dotIndex = Array.prototype.indexOf.call(dotsContainer.children, dot);
-        if (dotIndex !== -1) {
-          carouselContainer.scrollTo({ left: dotIndex * getCardStep(), behavior: "smooth" });
-          resetAutoScroll();
-        }
+        var idx = Array.prototype.indexOf.call(hsDotsEl.children, dot);
+        if (idx >= 0) { goTo(idx); resetTimer(); }
       });
     }
 
-    // Scroll forward (right to left movement)
-    function scrollNext() {
-      var maxScroll = carouselContainer.scrollWidth - carouselContainer.clientWidth;
-      if (carouselContainer.scrollLeft >= maxScroll - 20) {
-        carouselContainer.scrollTo({ left: 0, behavior: "smooth" });
-      } else {
-        carouselContainer.scrollBy({ left: getCardStep(), behavior: "smooth" });
-      }
+    /* ---- Add slide counter badge ---- */
+    var sliderEl = document.querySelector(".hero-slider");
+    if (sliderEl) {
+      var counter = document.createElement("div");
+      counter.className = "hs-counter";
+      counter.id = "hs-counter";
+      counter.textContent = "1 / " + hsTotal;
+      sliderEl.appendChild(counter);
     }
 
-    // Scroll backward
-    function scrollPrev() {
-      if (carouselContainer.scrollLeft <= 20) {
-        var maxScroll = carouselContainer.scrollWidth - carouselContainer.clientWidth;
-        carouselContainer.scrollTo({ left: maxScroll, behavior: "smooth" });
-      } else {
-        carouselContainer.scrollBy({ left: -getCardStep(), behavior: "smooth" });
+    /* ---- Core goTo ---- */
+    function goTo(n) {
+      /* deactivate old */
+      hsSlides[hsCurrent].classList.remove("is-active");
+
+      hsCurrent = (n + hsTotal) % hsTotal;
+
+      /* activate new */
+      hsSlides[hsCurrent].classList.add("is-active");
+
+      /* move track */
+      hsTrack.style.transform = "translateX(-" + (hsCurrent * 100) + "%)";
+
+      /* dots */
+      if (hsDotsEl) {
+        Array.prototype.forEach.call(hsDotsEl.children, function (dot, i) {
+          dot.classList.toggle("active", i === hsCurrent);
+          dot.setAttribute("aria-selected", i === hsCurrent ? "true" : "false");
+        });
       }
+
+      /* counter */
+      var cnt = document.getElementById("hs-counter");
+      if (cnt) cnt.textContent = (hsCurrent + 1) + " / " + hsTotal;
+
+      /* progress bar reset */
+      startProgressBar();
     }
 
-    if (nextBtn) {
-      nextBtn.addEventListener("click", function () {
-        scrollNext();
-        resetAutoScroll();
+    /* ---- Progress bar animation ---- */
+    function startProgressBar() {
+      if (!hsBar) return;
+      hsBar.style.transition = "none";
+      hsBar.style.width = "0%";
+      /* force reflow */
+      hsBar.offsetWidth; // eslint-disable-line
+      hsBar.style.transition = "width " + hsInterval + "ms linear";
+      hsBar.style.width = "100%";
+    }
+
+    /* ---- Auto-advance timer ---- */
+    function startTimer() {
+      clearInterval(hsTimer);
+      hsTimer = setInterval(function () {
+        if (!hsPaused) goTo(hsCurrent + 1);
+      }, hsInterval);
+    }
+
+    function resetTimer() {
+      startTimer();
+    }
+
+    /* ---- Nav buttons ---- */
+    if (hsPrev) {
+      hsPrev.addEventListener("click", function () {
+        goTo(hsCurrent - 1);
+        resetTimer();
+      });
+    }
+    if (hsNext) {
+      hsNext.addEventListener("click", function () {
+        goTo(hsCurrent + 1);
+        resetTimer();
       });
     }
 
-    if (prevBtn) {
-      prevBtn.addEventListener("click", function () {
-        scrollPrev();
-        resetAutoScroll();
+    /* ---- Keyboard support ---- */
+    if (sliderEl) {
+      sliderEl.addEventListener("keydown", function (e) {
+        if (e.key === "ArrowLeft")  { goTo(hsCurrent - 1); resetTimer(); }
+        if (e.key === "ArrowRight") { goTo(hsCurrent + 1); resetTimer(); }
       });
     }
 
-    function startAutoScroll() {
-      stopAutoScroll();
-      autoTimer = setInterval(function () {
-        if (!isPaused) {
-          scrollNext();
-        }
-      }, 3500);
-    }
-
-    function stopAutoScroll() {
-      if (autoTimer) {
-        clearInterval(autoTimer);
-        autoTimer = null;
+    /* ---- Touch / swipe support ---- */
+    var touchStartX = 0;
+    hsTrack.addEventListener("touchstart", function (e) {
+      touchStartX = e.touches[0].clientX;
+      hsPaused = true;
+    }, { passive: true });
+    hsTrack.addEventListener("touchend", function (e) {
+      var diff = touchStartX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 40) {
+        if (diff > 0) goTo(hsCurrent + 1);
+        else          goTo(hsCurrent - 1);
+        resetTimer();
       }
-    }
-
-    function resetAutoScroll() {
-      stopAutoScroll();
-      startAutoScroll();
-    }
-
-    // Pause on hover or touch
-    carouselContainer.addEventListener("mouseenter", function () { isPaused = true; });
-    carouselContainer.addEventListener("mouseleave", function () { isPaused = false; });
-    carouselContainer.addEventListener("touchstart", function () { isPaused = true; }, { passive: true });
-    carouselContainer.addEventListener("touchend", function () {
-      setTimeout(function () { isPaused = false; }, 1000);
+      setTimeout(function () { hsPaused = false; }, 800);
     }, { passive: true });
 
-    // Update active dot on scroll
-    var scrollDebounce = null;
-    carouselContainer.addEventListener("scroll", function () {
-      if (scrollDebounce) clearTimeout(scrollDebounce);
-      scrollDebounce = setTimeout(updateDots, 60);
-    }, { passive: true });
+    /* ---- Pause on hover ---- */
+    if (sliderEl) {
+      sliderEl.addEventListener("mouseenter", function () {
+        hsPaused = true;
+        if (hsBar) hsBar.style.animationPlayState = "paused";
+      });
+      sliderEl.addEventListener("mouseleave", function () {
+        hsPaused = false;
+        if (hsBar) hsBar.style.animationPlayState = "running";
+      });
+    }
 
-    startAutoScroll();
+    /* ---- Init first slide ---- */
+    goTo(0);
+    startTimer();
   }
 
   /* ---------- Services ---------- */
