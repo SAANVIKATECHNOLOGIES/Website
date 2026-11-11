@@ -57,18 +57,100 @@
 
   /* ---------- Services ---------- */
   var sg = document.getElementById("services-grid");
+  var filterContainer = document.getElementById("category-filters");
   if (sg && Array.isArray(cfg.services)) {
-    sg.innerHTML = cfg.services.filter(function (s) { return s.enabled; }).map(function (s) {
-      var msg = s.message || ("Hello " + (cfg.business ? cfg.business.name : "") + ", I would like to enquire about " + s.title + ".");
-      return (
-        '<article class="service-card reveal">' +
-          '<span class="s-ic">' + icon(s.icon || "repair") + "</span>" +
-          "<h3>" + esc(s.title) + "</h3>" +
-          "<p>" + esc(s.text) + "</p>" +
-          '<a class="link-cta" href="' + esc(waLink(msg)) + '" target="_blank" rel="noopener">Enquire about this service ' + icon("arrow") + "</a>" +
-        "</article>"
-      );
-    }).join("");
+    var activeCategory = "all";
+
+    function renderServices() {
+      var filtered = cfg.services.filter(function (s) {
+        if (!s.enabled) return false;
+        if (activeCategory === "all") return true;
+        return s.category === activeCategory;
+      });
+
+      sg.innerHTML = filtered.map(function (s) {
+        var msg = s.message || ("Hello " + (cfg.business ? cfg.business.name : "") + ", I would like to enquire about " + s.title + ".");
+        var badgesHtml = (s.badges || ["Sales", "Service", "AMC"]).map(function (b) {
+          var cls = "badge-tag ";
+          if (b.toLowerCase().indexOf("sales") !== -1) cls += "badge-sales";
+          else if (b.toLowerCase().indexOf("service") !== -1) cls += "badge-service";
+          else if (b.toLowerCase().indexOf("amc") !== -1) cls += "badge-amc";
+          return '<span class="' + cls + '">' + esc(b) + '</span>';
+        }).join("");
+
+        var highlightsHtml = s.highlights && s.highlights.length ? (
+          '<ul class="s-highlights">' +
+            s.highlights.slice(0, 3).map(function (h) {
+              return '<li>' + icon("check") + '<span>' + esc(h) + '</span></li>';
+            }).join("") +
+          '</ul>'
+        ) : '';
+
+        var mediaHtml = s.image ? (
+          '<div class="s-card-media">' +
+            '<span class="s-card-tag">' + esc(s.categoryName || "Service") + '</span>' +
+            '<img src="' + esc(s.image) + '" alt="' + esc(s.title) + '" loading="lazy" width="400" height="250">' +
+          '</div>'
+        ) : '';
+
+        var pageLink = s.pageUrl ? (
+          '<a class="btn-page" href="' + esc(s.pageUrl) + '">Explore Details ' + icon("arrow") + '</a>'
+        ) : '<span class="btn-page">Verified Solution</span>';
+
+        return (
+          '<article class="service-card-enhanced reveal" data-category="' + esc(s.category || "") + '">' +
+            mediaHtml +
+            '<div class="s-card-body">' +
+              '<div class="s-badges">' + badgesHtml + '</div>' +
+              '<h3><a href="' + esc(s.pageUrl || "#contact") + '">' + esc(s.title) + '</a></h3>' +
+              (s.tagline ? '<p class="s-tagline">' + esc(s.tagline) + '</p>' : '') +
+              '<p class="s-desc">' + esc(s.text) + '</p>' +
+              highlightsHtml +
+              '<div class="s-actions">' +
+                pageLink +
+                '<a class="btn-wa" href="' + esc(waLink(msg)) + '" target="_blank" rel="noopener">' +
+                  icon("whatsapp") + ' Enquire' +
+                '</a>' +
+              '</div>' +
+            '</div>' +
+          '</article>'
+        );
+      }).join("");
+
+      // Trigger scroll observer for new items
+      if (window.refreshReveal) window.refreshReveal();
+    }
+
+    // Category Filter Event Listeners
+    if (filterContainer) {
+      filterContainer.addEventListener("click", function (e) {
+        var btn = e.target.closest(".filter-btn");
+        if (!btn) return;
+        filterContainer.querySelectorAll(".filter-btn").forEach(function (b) { b.classList.remove("active"); });
+        btn.classList.add("active");
+        activeCategory = btn.getAttribute("data-filter") || "all";
+        renderServices();
+      });
+    }
+
+    renderServices();
+  }
+
+  /* ---------- Coverage Areas (GEO) ---------- */
+  if (cfg.coverage) {
+    var vzContainer = document.getElementById("vizag-areas-list");
+    if (vzContainer && Array.isArray(cfg.coverage.vizagAreas)) {
+      vzContainer.innerHTML = cfg.coverage.vizagAreas.map(function (area) {
+        var isFeatured = area.indexOf("Madhurawada") !== -1 || area.indexOf("IT SEZ") !== -1 || area.indexOf("Brandix") !== -1;
+        return '<li class="area-pill' + (isFeatured ? ' featured' : '') + '">' + icon("pin") + ' ' + esc(area) + '</li>';
+      }).join("");
+    }
+    var apContainer = document.getElementById("ap-cities-list");
+    if (apContainer && Array.isArray(cfg.coverage.andhraPradeshCities)) {
+      apContainer.innerHTML = cfg.coverage.andhraPradeshCities.map(function (city) {
+        return '<li class="area-pill">' + icon("map") + ' ' + esc(city) + '</li>';
+      }).join("");
+    }
   }
 
   /* ---------- Problems ---------- */
@@ -166,12 +248,19 @@
     var rv = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add("in"); rv.unobserve(en.target); } });
     }, { rootMargin: "0px 0px -8% 0px" });
-    document.querySelectorAll(".reveal, .step, .section-head").forEach(function (el) {
-      el.classList.add("reveal");
-      rv.observe(el);
-    });
+    function observeElements() {
+      document.querySelectorAll(".reveal:not(.in), .step, .section-head").forEach(function (el) {
+        el.classList.add("reveal");
+        rv.observe(el);
+      });
+    }
+    window.refreshReveal = observeElements;
+    observeElements();
   } else {
-    document.querySelectorAll(".reveal").forEach(function (el) { el.classList.add("in"); });
+    window.refreshReveal = function () {
+      document.querySelectorAll(".reveal").forEach(function (el) { el.classList.add("in"); });
+    };
+    window.refreshReveal();
   }
 
   /* ---------- Year ---------- */

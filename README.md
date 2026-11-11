@@ -12,11 +12,13 @@ Official website for SAANVIKA TECHNOLOGIES, a computer repair, computer services
 
 | Path | Purpose |
 |---|---|
-| `index.html` | The single-page website (all sections, SEO meta tags, LocalBusiness structured data) |
+| `index.html` | The main website (all sections, interactive filterable services showcase, 20+ areas served, AEO FAQs, LocalBusiness structured data) |
+| `services/` | **Dedicated SEO/AEO landing pages** for all 9 core services (Desktops/Laptops, CCTV, Biometrics, Networking, Intranet/Servers, Intercom, Printers, Firewalls/UPS, IT AMC) |
 | `404.html` | Branded "page not found" page |
-| `assets/css/styles.css` | All styling. Brand colours are defined as variables at the top. |
-| `assets/js/config.js` | **The owner-editable file:** contact details, services and common problems |
-| `assets/js/main.js` | Menu, WhatsApp links, service/problem cards, enquiry form |
+| `assets/css/styles.css` | All styling. Brand colours, service cards, badges, and responsive layouts. |
+| `assets/js/config.js` | **The owner-editable file:** contact details, 9 core services, 20+ Vizag areas & AP cities, problem shortcuts |
+| `assets/js/main.js` | Menu, category filter tabs, dynamic service/problem/area cards, enquiry form |
+| `assets/img/services/` | High-resolution photography for all service categories |
 | `assets/brand/` | Logo SVGs: primary, white, monogram (colour/white), favicon |
 | `assets/img/` | PNG icons and the social share image (`og-image.png`) |
 | `docs/` | Owner checklist, brand guide, brand sheet and image sources (not deployed) |

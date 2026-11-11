@@ -1,9 +1,100 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://www.saanvikatechnologies.com/</loc>
-    <lastmod>2026-11-09</lastmod>
-    <changefreq>monthly</changefreq>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.saanvikatechnologies.com/services/desktop-laptop-services.html</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://www.saanvikatechnologies.com/assets/img/services/desktop-laptop-services.jpg</image:loc>
+      <image:title>Desktop and Laptop Sales, Service and AMC</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.saanvikatechnologies.com/services/cctv-surveillance-systems.html</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://www.saanvikatechnologies.com/assets/img/services/cctv-surveillance-systems.jpg</image:loc>
+      <image:title>CCTV Camera Installation, Sales and AMC</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.saanvikatechnologies.com/services/biometrics-access-control.html</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://www.saanvikatechnologies.com/assets/img/services/biometrics-access-control.jpg</image:loc>
+      <image:title>Biometrics and Access Control Systems</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.saanvikatechnologies.com/services/networking-wifi-solutions.html</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://www.saanvikatechnologies.com/assets/img/services/networking-wifi-solutions.jpg</image:loc>
+      <image:title>Networking, Wi-Fi 6 and Structured Cabling</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.saanvikatechnologies.com/services/intranet-servers-storage.html</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://www.saanvikatechnologies.com/assets/img/services/intranet-servers-storage.jpg</image:loc>
+      <image:title>Intranet Setup, Local Servers and Data Recovery</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.saanvikatechnologies.com/services/intercom-epabx-systems.html</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://www.saanvikatechnologies.com/assets/img/services/intercom-epabx-systems.jpg</image:loc>
+      <image:title>Intercom and EPABX Telecom Solutions</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.saanvikatechnologies.com/services/printers-peripherals.html</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://www.saanvikatechnologies.com/assets/img/services/printers-peripherals.jpg</image:loc>
+      <image:title>Printer Sales, Repairs and Toner Cartridge Services</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.saanvikatechnologies.com/services/firewalls-server-racks-power.html</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://www.saanvikatechnologies.com/assets/img/services/firewalls-server-racks-power.jpg</image:loc>
+      <image:title>Network Firewalls, Server Racks and Online UPS</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.saanvikatechnologies.com/services/it-amc-maintenance.html</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://www.saanvikatechnologies.com/assets/img/services/it-amc-maintenance.jpg</image:loc>
+      <image:title>Annual Maintenance Contracts (IT AMC)</image:title>
+    </image:image>
   </url>
 </urlset>
