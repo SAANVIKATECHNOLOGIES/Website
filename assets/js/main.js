@@ -70,7 +70,7 @@
     var hsCurrent  = 0;
     var hsTimer    = null;
     var hsPaused   = false;
-    var hsInterval = 4500; // ms per slide
+    var hsInterval = 2000; // ms per slide
 
     /* ---- Build dots ---- */
     if (hsDotsEl && hsTotal > 0) {
