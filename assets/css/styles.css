@@ -470,7 +470,7 @@ button, input, select, textarea { font: inherit; color: inherit; }
   display: flex;
   gap: 22px;
   width: max-content;
-  animation: scrollClients 48s linear infinite;
+  animation: scrollClients 75s linear infinite;
   will-change: transform;
 }
 .clients-marquee-wrapper:hover .clients-marquee-track {
@@ -915,7 +915,7 @@ button, input, select, textarea { font: inherit; color: inherit; }
   .footer-grid { grid-template-columns: 1fr; gap: 28px; }
   .problem { min-height: 64px; }
   .client-logo-card { width: 220px; height: 72px; padding: 6px 10px; }
-  .clients-marquee-track { gap: 14px; animation-duration: 36s; }
+  .clients-marquee-track { gap: 14px; animation-duration: 55s; }
 }
 
 @media (prefers-reduced-motion: reduce) {

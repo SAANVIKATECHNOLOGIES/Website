@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 80" fill="none">
+  <rect width="320" height="80" rx="12" fill="#FFFFFF"/>
+  <g transform="translate(18, 14)">
+    <!-- Diagnostic Microscope / Precision Circle -->
+    <circle cx="26" cy="26" r="24" fill="#FEF2F2"/>
+    <circle cx="26" cy="26" r="20" fill="#DC2626"/>
+    <!-- Central White Diagnostic Test Tube / Precision Crosshair -->
+    <path d="M21 16 H31 V31 C31 34, 29 36, 26 36 C23 36, 21 34, 21 31 Z" fill="#FFFFFF"/>
+    <path d="M19 14 H33 V16 H19 Z" fill="#FFFFFF"/>
+    <line x1="26" y1="20" x2="26" y2="30" stroke="#DC2626" stroke-width="2" stroke-linecap="round"/>
+    <!-- Liquid drop -->
+    <circle cx="26" cy="26" r="2" fill="#DC2626"/>
+    <!-- Pulse ring -->
+    <circle cx="38" cy="14" r="3" fill="#F87171"/>
+  </g>
+  <!-- Text Brand -->
+  <text x="76" y="34" font-family="'Inter', -apple-system, sans-serif" font-size="17" font-weight="900" fill="#991B1B" letter-spacing="1.2">TOKYO LAB</text>
+  <text x="76" y="49" font-family="'Inter', -apple-system, sans-serif" font-size="9" font-weight="700" fill="#1E3A8A" letter-spacing="1">DIAGNOSTIC &amp; PATHOLOGY</text>
+  <text x="76" y="62" font-family="'Inter', -apple-system, sans-serif" font-size="8" font-weight="500" fill="#64748B">Clinical Laboratory &amp; Diagnostic Center</text>
+</svg>

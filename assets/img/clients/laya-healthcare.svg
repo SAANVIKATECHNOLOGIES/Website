@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 80" fill="none">
+  <rect width="320" height="80" rx="12" fill="#FFFFFF"/>
+  <g transform="translate(18, 14)">
+    <!-- Rhythm Lotus Heartbeat Crest -->
+    <rect x="2" y="2" width="48" height="48" rx="10" fill="#581C87"/>
+    <!-- Vibrant Life Pulse Lotus -->
+    <path d="M26 12 C26 12, 16 20, 16 30 C16 36, 20 40, 26 40 C32 40, 36 36, 36 30 C36 20, 26 12, 26 12 Z" fill="#A855F7"/>
+    <!-- White Heartbeat Wave -->
+    <path d="M12 28 H18 L22 22 L26 34 L30 25 L34 30 H40" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="26" cy="12" r="2" fill="#38BDF8"/>
+  </g>
+  <!-- Text Brand -->
+  <text x="76" y="34" font-family="'Inter', -apple-system, sans-serif" font-size="15" font-weight="900" fill="#3B0764" letter-spacing="0.5">LAYA HEALTHCARE</text>
+  <text x="76" y="49" font-family="'Inter', -apple-system, sans-serif" font-size="9" font-weight="700" fill="#7C3AED" letter-spacing="0.8">HOSPITALS &amp; HEALTH SERVICES</text>
+  <text x="76" y="62" font-family="'Inter', -apple-system, sans-serif" font-size="8" font-weight="500" fill="#64748B">Integrated Medical &amp; Clinical Care</text>
+</svg>

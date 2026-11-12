@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 80" fill="none">
+  <rect width="320" height="80" rx="12" fill="#FFFFFF"/>
+  <g transform="translate(18, 14)">
+    <!-- Diagnostic Droplet & Microscope Emblem -->
+    <circle cx="26" cy="26" r="24" fill="#E0F2FE"/>
+    <!-- Medical Droplet -->
+    <path d="M26 8 C26 8, 14 24, 14 31 C14 38, 19 44, 26 44 C33 44, 38 38, 38 31 C38 24, 26 8, 26 8 Z" fill="#0284C7"/>
+    <!-- White SL Monogram -->
+    <text x="26" y="35" font-family="'Inter', -apple-system, sans-serif" font-size="14" font-weight="900" fill="#FFFFFF" text-anchor="middle" letter-spacing="0.5">SL</text>
+  </g>
+  <!-- Text Brand -->
+  <text x="76" y="34" font-family="'Inter', -apple-system, sans-serif" font-size="18" font-weight="900" fill="#0369A1" letter-spacing="1.5">SL LAB</text>
+  <text x="76" y="49" font-family="'Inter', -apple-system, sans-serif" font-size="9" font-weight="700" fill="#0F766E" letter-spacing="1">CLINICAL PATHOLOGY &amp; SCANS</text>
+  <text x="76" y="62" font-family="'Inter', -apple-system, sans-serif" font-size="8" font-weight="500" fill="#64748B">Medical Testing &amp; Diagnostic Solutions</text>
+</svg>

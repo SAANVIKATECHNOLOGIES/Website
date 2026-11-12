@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 80" fill="none">
+  <rect width="320" height="80" rx="12" fill="#FFFFFF"/>
+  <g transform="translate(18, 14)">
+    <!-- Professional Chartered Accountant Crest -->
+    <circle cx="26" cy="26" r="24" fill="#0A2540"/>
+    <circle cx="26" cy="26" r="21" fill="#FFFFFF"/>
+    <circle cx="26" cy="26" r="19" fill="#0A2540"/>
+    <!-- CA Scales & Balance Beam Motif -->
+    <path d="M26 12 V38" stroke="#D4AF37" stroke-width="2.5"/>
+    <path d="M16 18 H36" stroke="#D4AF37" stroke-width="2" stroke-linecap="round"/>
+    <!-- Left Scale Pan -->
+    <path d="M16 18 L12 28 H20 Z" stroke="#D4AF37" stroke-width="1.2" fill="#D4AF37" fill-opacity="0.3"/>
+    <!-- Right Scale Pan -->
+    <path d="M36 18 L32 28 H40 Z" stroke="#D4AF37" stroke-width="1.2" fill="#D4AF37" fill-opacity="0.3"/>
+    <circle cx="26" cy="12" r="2" fill="#D4AF37"/>
+    <rect x="20" y="37" width="12" height="3" fill="#D4AF37"/>
+  </g>
+  <!-- Text Brand -->
+  <text x="76" y="34" font-family="'Inter', -apple-system, sans-serif" font-size="15" font-weight="900" fill="#0A2540" letter-spacing="0.5">RAO &amp; MANOJ</text>
+  <text x="76" y="49" font-family="'Inter', -apple-system, sans-serif" font-size="9" font-weight="700" fill="#B45309" letter-spacing="1">CHARTERED ACCOUNTANTS</text>
+  <text x="76" y="62" font-family="'Inter', -apple-system, sans-serif" font-size="8" font-weight="500" fill="#64748B">Audit, Taxation &amp; Advisory Services</text>
+</svg>

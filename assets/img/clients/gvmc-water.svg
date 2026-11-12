@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 80" fill="none">
+  <rect width="320" height="80" rx="12" fill="#FFFFFF"/>
+  <g transform="translate(18, 14)">
+    <!-- Municipal Seal Roundel -->
+    <circle cx="26" cy="26" r="24" fill="#0369A1"/>
+    <circle cx="26" cy="26" r="21" fill="#FFFFFF"/>
+    <!-- Water Ripple & Civic Wave -->
+    <circle cx="26" cy="26" r="18" fill="#E0F2FE"/>
+    <path d="M26 12 C26 12, 17 22, 17 28 C17 33, 21 37, 26 37 C31 37, 35 33, 35 28 C35 22, 26 12, 26 12 Z" fill="#0284C7"/>
+    <!-- Ripple curves below -->
+    <path d="M12 37 Q26 42 40 37" stroke="#0369A1" stroke-width="2" fill="none"/>
+    <circle cx="26" cy="26" r="2" fill="#FFFFFF"/>
+  </g>
+  <!-- Text Brand -->
+  <text x="76" y="34" font-family="'Inter', -apple-system, sans-serif" font-size="16" font-weight="900" fill="#075985" letter-spacing="1">GVMC</text>
+  <text x="76" y="49" font-family="'Inter', -apple-system, sans-serif" font-size="9" font-weight="700" fill="#0284C7" letter-spacing="0.8">WATER SUPPLY DEPARTMENT</text>
+  <text x="76" y="62" font-family="'Inter', -apple-system, sans-serif" font-size="8" font-weight="500" fill="#64748B">Greater Visakhapatnam Municipal Corp.</text>
+</svg>

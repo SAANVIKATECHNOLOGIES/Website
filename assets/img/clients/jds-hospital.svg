@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 80" fill="none">
+  <rect width="320" height="80" rx="12" fill="#FFFFFF"/>
+  <g transform="translate(18, 14)">
+    <!-- Hospital Shield with Cross & Heart Pulse -->
+    <path d="M26 4 L48 12 V28 C48 39, 26 48, 26 48 C26 48, 4 39, 4 28 V12 Z" fill="#0284C7"/>
+    <path d="M26 7 L45 14 V27 C45 36, 26 44, 26 44 C26 44, 7 36, 7 27 V14 Z" fill="#FFFFFF"/>
+    <!-- Red Cross -->
+    <path d="M22 15 H30 V22 H37 V30 H30 V37 H22 V30 H15 V22 H22 Z" fill="#EF4444"/>
+    <!-- White Heartbeat Pulse Line -->
+    <path d="M12 26 H18 L21 21 L24 31 L28 23 L31 28 H40" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <!-- Text Brand -->
+  <text x="76" y="34" font-family="'Inter', -apple-system, sans-serif" font-size="16" font-weight="900" fill="#0F172A" letter-spacing="0.5">JDS HOSPITAL</text>
+  <text x="76" y="49" font-family="'Inter', -apple-system, sans-serif" font-size="9" font-weight="700" fill="#0284C7" letter-spacing="1">MULTI-SPECIALITY &amp; TRAUMA</text>
+  <text x="76" y="62" font-family="'Inter', -apple-system, sans-serif" font-size="8" font-weight="500" fill="#64748B">Comprehensive Healthcare Center</text>
+</svg>

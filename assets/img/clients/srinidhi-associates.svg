@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 80" fill="none">
+  <rect width="320" height="80" rx="12" fill="#FFFFFF"/>
+  <g transform="translate(18, 14)">
+    <!-- Elegant Pillar & Infinity Shield -->
+    <rect x="2" y="2" width="48" height="48" rx="8" fill="#0F172A"/>
+    <!-- Gold Heritage Arch & Pillars -->
+    <path d="M14 14 H38 V17 H14 Z" fill="#D4AF37"/>
+    <path d="M12 14 L26 8 L40 14 Z" fill="#D4AF37"/>
+    <rect x="18" y="19" width="3.5" height="18" fill="#F3E8FF"/>
+    <rect x="24.5" y="19" width="3.5" height="18" fill="#D4AF37"/>
+    <rect x="31" y="19" width="3.5" height="18" fill="#F3E8FF"/>
+    <path d="M14 38 H38 V41 H14 Z" fill="#D4AF37"/>
+  </g>
+  <!-- Text Brand -->
+  <text x="76" y="34" font-family="'Inter', -apple-system, sans-serif" font-size="14" font-weight="900" fill="#0F172A" letter-spacing="0.5">SRINIDHI ASSOCIATES</text>
+  <text x="76" y="49" font-family="'Inter', -apple-system, sans-serif" font-size="9" font-weight="700" fill="#B45309" letter-spacing="1">CORPORATE &amp; LEGAL ADVISORS</text>
+  <text x="76" y="62" font-family="'Inter', -apple-system, sans-serif" font-size="8" font-weight="500" fill="#64748B">Business, Property &amp; Legal Consultancy</text>
+</svg>
