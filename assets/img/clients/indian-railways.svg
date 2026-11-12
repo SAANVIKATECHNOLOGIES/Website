@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 80" fill="none">
+  <rect width="320" height="80" rx="12" fill="#FFFFFF"/>
+  <g transform="translate(18, 14)">
+    <!-- Outer Red Star Ring -->
+    <circle cx="26" cy="26" r="24" fill="#C4122F"/>
+    <circle cx="26" cy="26" r="21" fill="#FFFFFF"/>
+    <circle cx="26" cy="26" r="19" fill="#0A2540"/>
+    <!-- Locomotive Track Profile -->
+    <circle cx="26" cy="26" r="14" fill="#DAA520" opacity="0.3"/>
+    <path d="M19 32 L22 20 H30 L33 32 Z" fill="#DAA520"/>
+    <circle cx="26" cy="24" r="3" fill="#FFFFFF"/>
+    <rect x="23" y="31" width="6" height="3" fill="#C4122F"/>
+    <!-- Stars accents -->
+    <circle cx="26" cy="7" r="1.5" fill="#FFFFFF"/>
+    <circle cx="43" cy="26" r="1.5" fill="#FFFFFF"/>
+    <circle cx="26" cy="45" r="1.5" fill="#FFFFFF"/>
+    <circle cx="9" cy="26" r="1.5" fill="#FFFFFF"/>
+    <!-- Winged tracks -->
+    <path d="M12 36 L26 33 L40 36 L26 38 Z" fill="#DAA520"/>
+  </g>
+  <!-- Text Brand -->
+  <text x="76" y="34" font-family="'Inter', -apple-system, sans-serif" font-size="15" font-weight="800" fill="#0A2540" letter-spacing="0.5">INDIAN RAILWAYS</text>
+  <text x="76" y="49" font-family="'Inter', -apple-system, sans-serif" font-size="10" font-weight="700" fill="#C4122F" letter-spacing="1">भारतीय रेल</text>
+  <text x="76" y="63" font-family="'Inter', -apple-system, sans-serif" font-size="8" font-weight="500" fill="#64748B">Ministry of Railways · Govt of India</text>
+</svg>

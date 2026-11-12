@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 80" fill="none">
+  <rect width="320" height="80" rx="12" fill="#FFFFFF"/>
+  <g transform="translate(18, 14)">
+    <!-- RVR Corporate Monogram -->
+    <rect x="2" y="2" width="48" height="48" rx="8" fill="#B91C1C"/>
+    <!-- Bold RVR Stylized Red & White Letters -->
+    <text x="26" y="27" font-family="'Inter', -apple-system, sans-serif" font-size="14" font-weight="900" fill="#FFFFFF" text-anchor="middle" letter-spacing="1">RVR</text>
+    <path d="M10 32 H42 V35 H10 Z" fill="#FBBF24"/>
+    <text x="26" y="44" font-family="'Inter', -apple-system, sans-serif" font-size="7" font-weight="800" fill="#FFFFFF" text-anchor="middle" letter-spacing="1.5">PROJECTS</text>
+  </g>
+  <!-- Text Brand -->
+  <text x="76" y="34" font-family="'Inter', -apple-system, sans-serif" font-size="16" font-weight="900" fill="#991B1B" letter-spacing="0.8">RVR PROJECTS</text>
+  <text x="76" y="49" font-family="'Inter', -apple-system, sans-serif" font-size="9" font-weight="700" fill="#1E3A8A" letter-spacing="1">PVT. LTD. · INFRASTRUCTURE</text>
+  <text x="76" y="62" font-family="'Inter', -apple-system, sans-serif" font-size="8" font-weight="500" fill="#64748B">Mega Infrastructure &amp; Engineering</text>
+</svg>

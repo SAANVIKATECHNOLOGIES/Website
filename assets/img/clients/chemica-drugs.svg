@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 80" fill="none">
+  <rect width="320" height="80" rx="12" fill="#FFFFFF"/>
+  <g transform="translate(18, 14)">
+    <!-- Chemistry Flask & Molecule -->
+    <circle cx="26" cy="26" r="24" fill="#E8F4FD"/>
+    <path d="M22 10 H30 V18 L38 34 C40 38, 37 42, 33 42 H19 C15 42, 12 38, 14 34 L22 18 Z" fill="#1976D2"/>
+    <path d="M16 34 L22 22 L30 22 L36 34 C37 36, 36 38, 33 38 H19 C16 38, 15 36, 16 34 Z" fill="#00B0FF" opacity="0.6"/>
+    <circle cx="23" cy="32" r="2" fill="#FFFFFF"/>
+    <circle cx="29" cy="28" r="1.5" fill="#FFFFFF"/>
+    <circle cx="26" cy="35" r="1.5" fill="#FFFFFF"/>
+  </g>
+  <!-- Text Brand -->
+  <text x="76" y="34" font-family="'Inter', -apple-system, sans-serif" font-size="15" font-weight="900" fill="#0D47A1" letter-spacing="0.5">CHEMICA DRUGS</text>
+  <text x="76" y="49" font-family="'Inter', -apple-system, sans-serif" font-size="9" font-weight="700" fill="#0288D1" letter-spacing="1">PVT. LTD. · API &amp; BULK DRUGS</text>
+  <text x="76" y="62" font-family="'Inter', -apple-system, sans-serif" font-size="8" font-weight="500" fill="#64748B">J.N. Pharma City · Visakhapatnam</text>
+</svg>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 80" fill="none">
+  <rect width="320" height="80" rx="12" fill="#FFFFFF"/>
+  <g transform="translate(18, 14)">
+    <!-- Precision Structural Building Framework -->
+    <rect x="2" y="2" width="48" height="48" rx="8" fill="#1E3A8A"/>
+    <!-- Intersecting High-Rise Lines -->
+    <path d="M12 40 V18 L26 10 L40 18 V40 H12 Z" stroke="#38BDF8" stroke-width="2" fill="none"/>
+    <path d="M20 40 V24 L26 20 L32 24 V40" fill="#60A5FA" opacity="0.4"/>
+    <rect x="24" y="32" width="4" height="8" fill="#F59E0B"/>
+    <circle cx="26" cy="10" r="2" fill="#F59E0B"/>
+  </g>
+  <!-- Text Brand -->
+  <text x="76" y="34" font-family="'Inter', -apple-system, sans-serif" font-size="15" font-weight="900" fill="#1E3A8A" letter-spacing="0.5">GARIKAPATI</text>
+  <text x="76" y="49" font-family="'Inter', -apple-system, sans-serif" font-size="9" font-weight="700" fill="#D97706" letter-spacing="1">BUILDERS &amp; DEVELOPERS</text>
+  <text x="76" y="62" font-family="'Inter', -apple-system, sans-serif" font-size="8" font-weight="500" fill="#64748B">Residential &amp; Commercial Highrises</text>
+</svg>

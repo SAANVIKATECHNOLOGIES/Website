@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 80" fill="none">
+  <rect width="320" height="80" rx="12" fill="#FFFFFF"/>
+  <g transform="translate(18, 14)">
+    <!-- Industrial T Hexagon Mark -->
+    <path d="M26 2 L48 14 L48 38 L26 50 L4 38 L4 14 Z" fill="#0B2F64"/>
+    <path d="M26 6 L44 16 L44 36 L26 46 L8 36 L8 16 Z" fill="#FFFFFF"/>
+    <!-- Bold T with Engineering Beam -->
+    <path d="M14 18 H38 V25 H29 V40 H23 V25 H14 Z" fill="#0B2F64"/>
+    <path d="M23 20 L38 20 L35 25 L23 25 Z" fill="#E87722"/>
+    <circle cx="26" cy="40" r="2.5" fill="#E87722"/>
+  </g>
+  <!-- Text Brand -->
+  <text x="76" y="38" font-family="'Inter', -apple-system, sans-serif" font-size="16" font-weight="800" fill="#0B2F64" letter-spacing="0.5">TUAMAN</text>
+  <text x="76" y="52" font-family="'Inter', -apple-system, sans-serif" font-size="9" font-weight="700" fill="#E87722" letter-spacing="1.5">ENGINEERING LIMITED</text>
+  <text x="76" y="64" font-family="'Inter', -apple-system, sans-serif" font-size="8" font-weight="500" fill="#64748B">EPC &amp; Heavy Engineering</text>
+</svg>

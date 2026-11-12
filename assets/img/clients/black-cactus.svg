@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 80" fill="none">
+  <rect width="320" height="80" rx="12" fill="#FFFFFF"/>
+  <g transform="translate(18, 14)">
+    <!-- Cyber Geometric Prism / Cactus Node -->
+    <rect x="2" y="2" width="48" height="48" rx="12" fill="#111827"/>
+    <!-- Neon green/cyan cactus circuit branches -->
+    <path d="M26 12 V38" stroke="#00E5FF" stroke-width="3" stroke-linecap="round"/>
+    <path d="M16 20 V28 C16 32, 26 32, 26 32" stroke="#00E676" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+    <path d="M36 24 V30 C36 34, 26 34, 26 34" stroke="#00E5FF" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+    <circle cx="26" cy="12" r="3" fill="#00E5FF"/>
+    <circle cx="16" cy="20" r="2.5" fill="#00E676"/>
+    <circle cx="36" cy="24" r="2.5" fill="#00E5FF"/>
+  </g>
+  <!-- Text Brand -->
+  <text x="76" y="34" font-family="'Inter', -apple-system, sans-serif" font-size="14" font-weight="900" fill="#111827" letter-spacing="0.5">BLACK CACTUS</text>
+  <text x="76" y="49" font-family="'Inter', -apple-system, sans-serif" font-size="9" font-weight="700" fill="#0F766E" letter-spacing="1">GLOBAL TECHNOLOGIES</text>
+  <text x="76" y="62" font-family="'Inter', -apple-system, sans-serif" font-size="8" font-weight="500" fill="#64748B">Enterprise Software &amp; IT Services</text>
+</svg>

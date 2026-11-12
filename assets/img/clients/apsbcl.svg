@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 80" fill="none">
+  <rect width="320" height="80" rx="12" fill="#FFFFFF"/>
+  <g transform="translate(18, 14)">
+    <!-- Government Seal Shield -->
+    <path d="M26 3 L48 11 V28 C48 40, 26 49, 26 49 C26 49, 4 40, 4 28 V11 Z" fill="#0D47A1"/>
+    <path d="M26 6 L45 13 V27 C45 37, 26 45, 26 45 C26 45, 7 37, 7 27 V13 Z" fill="#FFFFFF"/>
+    <!-- Purna Kumbham Golden Emblem Silhouette -->
+    <circle cx="26" cy="20" r="6" fill="#FFB300"/>
+    <path d="M20 23 C17 28, 17 33, 20 37 H32 C35 33, 35 28, 32 23 Z" fill="#FFB300"/>
+    <path d="M18 37 H34 V39 H18 Z" fill="#0D47A1"/>
+    <!-- Coconut leaves atop kalash -->
+    <path d="M26 12 L22 18 H30 Z" fill="#2E7D32"/>
+  </g>
+  <!-- Text Brand -->
+  <text x="76" y="34" font-family="'Inter', -apple-system, sans-serif" font-size="16" font-weight="900" fill="#0D47A1" letter-spacing="1">APSBCL</text>
+  <text x="76" y="49" font-family="'Inter', -apple-system, sans-serif" font-size="9" font-weight="700" fill="#0A2540" letter-spacing="0.5">A.P. STATE BEVERAGES</text>
+  <text x="76" y="62" font-family="'Inter', -apple-system, sans-serif" font-size="8" font-weight="500" fill="#64748B">Corporation Ltd · Govt of Andhra Pradesh</text>
+</svg>
