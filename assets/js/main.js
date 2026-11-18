@@ -43,16 +43,25 @@
 
   // Optional fields — only shown once verified & enabled in config.js
   if (contact.email && contact.email.enabled && contact.email.address) {
+    document.querySelectorAll("[data-email]").forEach(function (a) {
+      a.href = "mailto:" + contact.email.address;
+    });
     var li = document.getElementById("contact-email");
-    var a = li.querySelector("a");
-    a.href = "mailto:" + contact.email.address;
-    a.textContent = contact.email.address;
-    li.hidden = false;
+    if (li) {
+      var a = li.querySelector("a");
+      if (a) {
+        a.href = "mailto:" + contact.email.address;
+        a.textContent = contact.email.address;
+      }
+      li.hidden = false;
+    }
   }
   if (contact.hours && contact.hours.enabled && contact.hours.lines && contact.hours.lines.length) {
     var hl = document.getElementById("contact-hours");
-    hl.querySelector(".c-hours").innerHTML = contact.hours.lines.map(esc).join("<br>");
-    hl.hidden = false;
+    if (hl) {
+      hl.querySelector(".c-hours").innerHTML = contact.hours.lines.map(esc).join("<br>");
+      hl.hidden = false;
+    }
   }
 
   /* ============================================================
@@ -316,28 +325,268 @@
     }).join("");
   }
 
-  /* ---------- Enquiry form → WhatsApp ---------- */
+  /* ---------- Customer Service Requirement Form ---------- */
   var form = document.getElementById("enquiry-form");
   if (form) {
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
-      var name = form.elements.name, problem = form.elements.problem, device = form.elements.device;
-      var err = document.getElementById("form-error");
+    var fileInput = document.getElementById("f-file");
+    var dropZone = document.getElementById("file-drop-zone");
+    var previewCard = document.getElementById("file-preview-card");
+    var previewImg = document.getElementById("file-preview-img");
+    var previewIcon = document.getElementById("file-preview-icon");
+    var previewName = document.getElementById("file-preview-name");
+    var previewSize = document.getElementById("file-preview-size");
+    var btnRemoveFile = document.getElementById("btn-remove-file");
+    var errEl = document.getElementById("form-error");
+    var successEl = document.getElementById("form-success");
+    var submitBtn = document.getElementById("btn-submit-form");
+    var waBtn = document.getElementById("btn-submit-wa");
+
+    var currentFile = null;
+    var currentFileBase64 = null;
+
+    function formatBytes(bytes) {
+      if (bytes < 1024) return bytes + " B";
+      else if (bytes < 1048576) return (bytes / 1024).toFixed(1) + " KB";
+      else return (bytes / 1048576).toFixed(1) + " MB";
+    }
+
+    function handleFile(file) {
+      if (!file) return;
+      if (file.size > 5 * 1024 * 1024) {
+        alert("File size exceeds 5MB limit. Please choose a smaller image or document.");
+        clearFile();
+        return;
+      }
+      currentFile = file;
+      if (previewName) previewName.textContent = file.name;
+      if (previewSize) previewSize.textContent = formatBytes(file.size);
+
+      var isImg = file.type.indexOf("image/") === 0;
+      var reader = new FileReader();
+      reader.onload = function (e) {
+        var dataUrl = e.target.result;
+        var parts = dataUrl.split(",");
+        currentFileBase64 = parts.length > 1 ? parts[1] : "";
+
+        if (isImg && previewImg) {
+          previewImg.src = dataUrl;
+          previewImg.hidden = false;
+          if (previewIcon) previewIcon.hidden = true;
+        } else if (previewIcon) {
+          if (previewImg) previewImg.hidden = true;
+          previewIcon.hidden = false;
+        }
+        if (previewCard) previewCard.hidden = false;
+        if (dropZone) dropZone.hidden = true;
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function clearFile() {
+      currentFile = null;
+      currentFileBase64 = null;
+      if (fileInput) fileInput.value = "";
+      if (previewImg) previewImg.src = "";
+      if (previewCard) previewCard.hidden = true;
+      if (dropZone) dropZone.hidden = false;
+    }
+
+    if (fileInput) {
+      fileInput.addEventListener("change", function (e) {
+        if (e.target.files && e.target.files[0]) {
+          handleFile(e.target.files[0]);
+        }
+      });
+    }
+
+    if (btnRemoveFile) {
+      btnRemoveFile.addEventListener("click", function (e) {
+        e.preventDefault();
+        clearFile();
+      });
+    }
+
+    if (dropZone) {
+      ["dragenter", "dragover"].forEach(function (eventName) {
+        dropZone.addEventListener(eventName, function (e) {
+          e.preventDefault();
+          dropZone.classList.add("dragover");
+        }, false);
+      });
+      ["dragleave", "drop"].forEach(function (eventName) {
+        dropZone.addEventListener(eventName, function (e) {
+          e.preventDefault();
+          dropZone.classList.remove("dragover");
+        }, false);
+      });
+      dropZone.addEventListener("drop", function (e) {
+        if (e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0]) {
+          handleFile(e.dataTransfer.files[0]);
+        }
+      });
+    }
+
+    function getFormData() {
+      var name = (form.elements.name ? form.elements.name.value : "").trim();
+      var phone = (form.elements.phone ? form.elements.phone.value : "").trim();
+      var email = (form.elements.email ? form.elements.email.value : "").trim();
+      var device = (form.elements.device ? form.elements.device.value : "IT Equipment");
+      var timeframe = (form.elements.timeframe ? form.elements.timeframe.value : "Not specified");
+      var serviceMode = (form.elements.serviceMode ? form.elements.serviceMode.value : "On-site");
+      var problem = (form.elements.problem ? form.elements.problem.value : "").trim();
+
+      return {
+        name: name,
+        phone: phone,
+        email: email,
+        device: device,
+        timeframe: timeframe,
+        serviceMode: serviceMode,
+        problem: problem,
+        fileName: currentFile ? currentFile.name : null,
+        fileSize: currentFile ? currentFile.size : null,
+        fileType: currentFile ? currentFile.type : null,
+        fileBase64: currentFileBase64
+      };
+    }
+
+    function validateForm(data) {
       var bad = false;
-      [name, problem].forEach(function (f) {
+      var fName = form.elements.name;
+      var fPhone = form.elements.phone;
+      var fProblem = form.elements.problem;
+
+      [fName, fPhone, fProblem].forEach(function (f) {
+        if (!f) return;
         var invalid = !f.value.trim();
         f.setAttribute("aria-invalid", invalid ? "true" : "false");
         if (invalid) bad = true;
       });
-      err.hidden = !bad;
-      if (bad) { (name.value.trim() ? problem : name).focus(); return; }
 
-      var msg =
-        "Hello " + (cfg.business ? cfg.business.name : "") + ",\n" +
-        "Name: " + name.value.trim() + "\n" +
-        "Device: " + device.value + "\n" +
-        "Problem: " + problem.value.trim();
-      window.open(waLink(msg), "_blank", "noopener");
+      if (bad) {
+        if (errEl) {
+          errEl.textContent = "Please fill in all required fields: Your Name, Phone Number, and Problem Description.";
+          errEl.hidden = false;
+        }
+        if (successEl) successEl.hidden = true;
+        if (fName && !fName.value.trim()) fName.focus();
+        else if (fPhone && !fPhone.value.trim()) fPhone.focus();
+        else if (fProblem) fProblem.focus();
+        return false;
+      }
+      if (errEl) errEl.hidden = true;
+      return true;
+    }
+
+    /* Action 1: Send via WhatsApp */
+    if (waBtn) {
+      waBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        var data = getFormData();
+        if (!validateForm(data)) return;
+
+        var msg =
+          "Hello " + (cfg.business ? cfg.business.name : "SAANVIKA TECHNOLOGIES") + ",\n\n" +
+          "I want to book a service requirement:\n" +
+          "• Name: " + data.name + "\n" +
+          "• Phone: " + data.phone + "\n" +
+          (data.email ? "• Email: " + data.email + "\n" : "") +
+          "• Equipment: " + data.device + "\n" +
+          "• Since When: " + data.timeframe + "\n" +
+          "• Service Mode: " + data.serviceMode + "\n" +
+          "• Problem Details: " + data.problem + "\n" +
+          (data.fileName ? "• [Attaching photo in this chat: " + data.fileName + "]\n" : "");
+
+        window.open(waLink(msg), "_blank", "noopener");
+      });
+    }
+
+    /* Action 2: Submit to Email via Google Apps Script */
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var data = getFormData();
+      if (!validateForm(data)) return;
+
+      var scriptUrl = (contact && contact.formScriptUrl) ? contact.formScriptUrl.trim() : "";
+
+      // Fallback if Google Apps Script URL has not yet been deployed by the site owner
+      if (!scriptUrl || scriptUrl.indexOf("http") !== 0) {
+        var emailSubject = encodeURIComponent("Service Requirement: " + data.device + " - " + data.name);
+        var emailBody = encodeURIComponent(
+          "Customer Name: " + data.name + "\n" +
+          "Phone / WhatsApp: " + data.phone + "\n" +
+          "Email: " + (data.email || "Not provided") + "\n" +
+          "Equipment / Service: " + data.device + "\n" +
+          "Since When Not Working: " + data.timeframe + "\n" +
+          "Preferred Service Mode: " + data.serviceMode + "\n\n" +
+          "Problem Description:\n" + data.problem + "\n\n" +
+          (data.fileName ? "[Attached File Note: " + data.fileName + " - Please attach manually if prompted]" : "")
+        );
+        var mailtoUrl = "mailto:" + (contact.email && contact.email.address ? contact.email.address : "info@saanvikatechnologies.com") + "?subject=" + emailSubject + "&body=" + emailBody;
+
+        if (successEl) {
+          successEl.innerHTML =
+            "<h4><svg class='ic' aria-hidden='true' style='width:18px;height:18px;'><use href='#i-check'/></svg> Requirement Ready to Send!</h4>" +
+            "<p>Your requirement details are pre-filled. Choose how you'd like to deliver it to <strong>info@saanvikatechnologies.com</strong>:</p>" +
+            "<div style='margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;'>" +
+              "<a class='btn btn-primary btn-sm' href='" + mailtoUrl + "'><svg class='ic' aria-hidden='true'><use href='#i-mail'/></svg> Open Email App (Send to info@saanvikatechnologies.com)</a>" +
+              "<button type='button' class='btn btn-secondary btn-sm' id='fallback-wa-btn'><svg class='ic' aria-hidden='true'><use href='#i-whatsapp'/></svg> Send via WhatsApp</button>" +
+            "</div>";
+          successEl.hidden = false;
+          var fWa = document.getElementById("fallback-wa-btn");
+          if (fWa) {
+            fWa.addEventListener("click", function () {
+              if (waBtn) waBtn.click();
+            });
+          }
+        }
+        return;
+      }
+
+      // If active scriptUrl is present, POST to Google Apps Script
+      if (submitBtn) {
+        submitBtn.classList.add("loading");
+        submitBtn.disabled = true;
+      }
+      if (errEl) errEl.hidden = true;
+      if (successEl) successEl.hidden = true;
+
+      fetch(scriptUrl, {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "text/plain;charset=utf-8"
+        },
+        body: JSON.stringify(data)
+      })
+      .then(function () {
+        if (submitBtn) {
+          submitBtn.classList.remove("loading");
+          submitBtn.disabled = false;
+        }
+        if (successEl) {
+          successEl.innerHTML =
+            "<h4><svg class='ic' aria-hidden='true' style='width:18px;height:18px;'><use href='#i-check'/></svg> Requirement Submitted Successfully!</h4>" +
+            "<p>Thank you <strong>" + esc(data.name) + "</strong>. Your service requirement" +
+            (data.fileName ? " and attached photo (" + esc(data.fileName) + ")" : "") +
+            " have been sent directly to <strong>info@saanvikatechnologies.com</strong>.<br>" +
+            "Our engineer will inspect your details and contact you on <strong>" + esc(data.phone) + "</strong> shortly.</p>";
+          successEl.hidden = false;
+        }
+        form.reset();
+        clearFile();
+      })
+      .catch(function () {
+        if (submitBtn) {
+          submitBtn.classList.remove("loading");
+          submitBtn.disabled = false;
+        }
+        if (errEl) {
+          errEl.innerHTML =
+            "Could not send automatically. Please <a href='mailto:info@saanvikatechnologies.com' style='text-decoration:underline;color:inherit;font-weight:bold;'>email us directly at info@saanvikatechnologies.com</a> or tap 'Send via WhatsApp'.";
+          errEl.hidden = false;
+        }
+      });
     });
   }
 

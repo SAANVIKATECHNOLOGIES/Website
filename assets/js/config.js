@@ -19,10 +19,13 @@ window.SITE_CONFIG = {
   },
 
   contact: {
-    phone:    { enabled: true,  display: "+91 88863 33367", tel: "+918886333367" },
-    whatsapp: { enabled: true,  number: "918886333367" },
-    email:    { enabled: false, address: "" },
-    hours:    { enabled: false, lines: [] }
+    phone:         { enabled: true,  display: "+91 88863 33367", tel: "+918886333367" },
+    whatsapp:      { enabled: true,  number: "918886333367" },
+    email:         { enabled: true,  address: "info@saanvikatechnologies.com" },
+    // Google Apps Script Web App URL for receiving customer service requirements & file attachments directly in email
+    // (See docs/GOOGLE_APPS_SCRIPT_SETUP.md for 2-minute setup instructions)
+    formScriptUrl: "",
+    hours:         { enabled: false, lines: [] }
   },
 
   defaultMessage: "Hello SAANVIKA TECHNOLOGIES, I would like to enquire about your IT hardware and technical services.",

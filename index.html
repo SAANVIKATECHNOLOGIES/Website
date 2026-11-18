@@ -50,6 +50,7 @@
         "logo": "https://www.saanvikatechnologies.com/assets/img/apple-touch-icon.png",
         "image": "https://www.saanvikatechnologies.com/assets/img/og-image.png",
         "telephone": "+91-8886333367",
+        "email": "info@saanvikatechnologies.com",
         "hasMap": "https://maps.app.goo.gl/uBvAg1Kp8fdG1vbHA",
         "address": {
           "@type": "PostalAddress",
@@ -221,6 +222,8 @@
       <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></symbol>
       <symbol id="i-quote" viewBox="0 0 24 24"><path d="M9.5 7H6a2 2 0 0 0-2 2v3.5h4.5V16A2.5 2.5 0 0 1 6 18.5M20 7h-3.5a2 2 0 0 0-2 2v3.5H19V16a2.5 2.5 0 0 1-2.5 2.5"/></symbol>
       <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+      <symbol id="i-camera" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></symbol>
+      <symbol id="i-upload" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"/></symbol>
     </defs>
   </svg>
 
@@ -269,6 +272,7 @@
       <div class="mobile-menu-actions">
         <a class="btn btn-dark btn-block" data-tel href="tel:+918886333367"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg>Call +91 88863 33367</a>
         <a class="btn btn-primary btn-block" data-wa href="https://wa.me/918886333367" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-whatsapp"/></svg>WhatsApp Us</a>
+        <a class="btn btn-ghost btn-block" href="mailto:info@saanvikatechnologies.com"><svg class="ic" aria-hidden="true"><use href="#i-mail"/></svg>info@saanvikatechnologies.com</a>
       </div>
     </div>
   </header>
@@ -807,9 +811,9 @@
                 <span class="c-ic"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg></span>
                 <div><span class="c-label">Phone &amp; WhatsApp</span><a data-tel href="tel:+918886333367">+91 88863 33367</a></div>
               </li>
-              <li id="contact-email" hidden>
+              <li id="contact-email">
                 <span class="c-ic"><svg class="ic" aria-hidden="true"><use href="#i-mail"/></svg></span>
-                <div><span class="c-label">Email</span><a href="#"></a></div>
+                <div><span class="c-label">Official Email</span><a href="mailto:info@saanvikatechnologies.com">info@saanvikatechnologies.com</a></div>
               </li>
               <li id="contact-hours" hidden>
                 <span class="c-ic"><svg class="ic" aria-hidden="true"><use href="#i-clock"/></svg></span>
@@ -819,39 +823,128 @@
             <div class="contact-actions">
               <a class="btn btn-dark" data-tel href="tel:+918886333367"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg>Call Now</a>
               <a class="btn btn-primary" data-wa href="https://wa.me/918886333367" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-whatsapp"/></svg>WhatsApp</a>
-              <a class="btn btn-ghost" data-maps href="https://maps.app.goo.gl/uBvAg1Kp8fdG1vbHA?g_st=aw" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-map"/></svg>Get Directions</a>
+              <a class="btn btn-ghost" href="mailto:info@saanvikatechnologies.com"><svg class="ic" aria-hidden="true"><use href="#i-mail"/></svg>Email Us</a>
+              <a class="btn btn-ghost" data-maps href="https://maps.app.goo.gl/uBvAg1Kp8fdG1vbHA?g_st=aw" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-map"/></svg>Directions</a>
             </div>
           </div>
 
+          <!-- Customer Service Requirement Form -->
           <form class="enquiry" id="enquiry-form" novalidate>
-            <h3>Send an enquiry</h3>
-            <p class="form-note">Your message opens in WhatsApp, ready to send. Nothing is stored on this website.</p>
-            <div class="field">
-              <label for="f-name">Your name</label>
-              <input id="f-name" name="name" type="text" autocomplete="name" required maxlength="80">
+            <div class="form-badge"><svg class="ic" aria-hidden="true"><use href="#i-repair"/></svg> Fast Service Booking</div>
+            <h3>Submit Service Requirement</h3>
+            <p class="form-note">Enter your equipment issue or purchase inquiry below. You can also attach photos or screenshots of the error.</p>
+
+            <div class="form-row">
+              <div class="field">
+                <label for="f-name">Your Name <span class="req">*</span></label>
+                <input id="f-name" name="name" type="text" autocomplete="name" required maxlength="80" placeholder="e.g. Rajesh Kumar">
+              </div>
+              <div class="field">
+                <label for="f-phone">Phone / WhatsApp <span class="req">*</span></label>
+                <input id="f-phone" name="phone" type="tel" autocomplete="tel" required maxlength="20" placeholder="e.g. +91 98765 43210">
+              </div>
             </div>
-            <div class="field">
-              <label for="f-device">Device</label>
-              <select id="f-device" name="device">
-                <option value="Laptop">Laptop (Sales / Repair)</option>
-                <option value="Desktop computer">Desktop Computer / Workstation</option>
-                <option value="CCTV surveillance">CCTV &amp; Surveillance System</option>
-                <option value="Biometrics & Access Control">Biometrics &amp; Access Control / EM Lock</option>
-                <option value="Networking & Wi-Fi">Office Networking / Wi-Fi / Structured Cabling</option>
-                <option value="Intranet & Storage">Intranet Setup / Local Server / Data Recovery</option>
-                <option value="Intercom & EPABX">Intercom &amp; EPABX Telecom</option>
-                <option value="Printer & Peripherals">Printer / Scanner / Toner Cartridge</option>
-                <option value="Firewall & UPS">Firewall / Server Rack / Online UPS</option>
-                <option value="IT AMC Contract">Annual Maintenance Contract (IT AMC)</option>
-                <option value="Other">Other Technical Query</option>
-              </select>
+
+            <div class="form-row">
+              <div class="field">
+                <label for="f-email">Email Address <span class="opt">(Optional)</span></label>
+                <input id="f-email" name="email" type="email" autocomplete="email" maxlength="100" placeholder="e.g. yourname@gmail.com">
+              </div>
+              <div class="field">
+                <label for="f-device">Equipment / Service <span class="req">*</span></label>
+                <select id="f-device" name="device">
+                  <option value="Desktop Computer">Desktop Computer / Workstation</option>
+                  <option value="Laptop / MacBook">Laptop / MacBook (Repair / Screen / Battery)</option>
+                  <option value="CCTV Surveillance">CCTV &amp; Security Surveillance</option>
+                  <option value="Biometrics & Access Control">Biometrics, Time-Attendance &amp; Access Control</option>
+                  <option value="Networking & Wi-Fi">Office Networking, Wi-Fi 6 &amp; Cabling</option>
+                  <option value="Intranet & Storage">Intranet Setup, Local Server &amp; Storage</option>
+                  <option value="Intercom & EPABX">Intercom &amp; EPABX Telecom Systems</option>
+                  <option value="Printer & Peripherals">Printers, Scanners &amp; Cartridge Refill</option>
+                  <option value="Firewall, Rack & UPS">Firewall, Server Rack &amp; Online UPS</option>
+                  <option value="IT AMC Contract">Annual Maintenance Contract (IT AMC)</option>
+                  <option value="Other IT Requirement">Other Hardware / Technical Requirement</option>
+                </select>
+              </div>
             </div>
-            <div class="field">
-              <label for="f-problem">Describe the problem</label>
-              <textarea id="f-problem" name="problem" rows="4" required maxlength="1000" placeholder="e.g. My laptop has become very slow after an update."></textarea>
+
+            <div class="form-row">
+              <div class="field">
+                <label for="f-timeframe">Since when is it not working? <span class="req">*</span></label>
+                <select id="f-timeframe" name="timeframe">
+                  <option value="Started today">Started today</option>
+                  <option value="2 to 3 days ago">2 to 3 days ago</option>
+                  <option value="About 1 week ago">About 1 week ago</option>
+                  <option value="More than 2 weeks">More than 2 weeks ago</option>
+                  <option value="Intermittent issue (comes & goes)">Intermittent issue (comes &amp; goes)</option>
+                  <option value="Not broken - Need new installation/sales quote">Not broken &ndash; Need new purchase / installation</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="f-mode">Preferred Service Mode</label>
+                <select id="f-mode" name="serviceMode">
+                  <option value="On-site visit at my home / office">On-site engineer visit (Home / Office)</option>
+                  <option value="Carry-in to Madhurawada service center">Carry-in to Madhurawada service center</option>
+                  <option value="Remote diagnostic assistance">Remote diagnostic assistance</option>
+                </select>
+              </div>
             </div>
-            <p class="form-error" id="form-error" role="alert" hidden>Please enter your name and a short description of the problem.</p>
-            <button class="btn btn-primary btn-block" type="submit"><svg class="ic" aria-hidden="true"><use href="#i-whatsapp"/></svg>Send via WhatsApp</button>
+
+            <div class="field">
+              <label for="f-problem">Problem Description / Symptoms <span class="req">*</span></label>
+              <textarea id="f-problem" name="problem" rows="3" required maxlength="1200" placeholder="Describe the symptoms or error (e.g. desktop won't turn on after power fluctuation, blue screen error code, screen flickering, need quote for 8 IP cameras with installation)..."></textarea>
+            </div>
+
+            <!-- Image / Photo Attachment -->
+            <div class="field file-upload-field">
+              <label>Attach Photo or Screenshot <span class="opt">(Optional, max 5MB)</span></label>
+              <div class="file-drop-zone" id="file-drop-zone">
+                <input type="file" id="f-file" name="attachment" accept="image/*,.pdf" class="file-input-hidden">
+                <div class="file-drop-content">
+                  <span class="file-drop-icon"><svg class="ic" aria-hidden="true"><use href="#i-camera"/></svg></span>
+                  <div class="file-drop-text">
+                    <span class="file-drop-prompt"><strong>Click to browse photo</strong> or drag &amp; drop here</span>
+                    <span class="file-drop-hint">JPG, PNG, WEBP, or PDF up to 5MB</span>
+                  </div>
+                </div>
+              </div>
+              <!-- Preview Card -->
+              <div class="file-preview-card" id="file-preview-card" hidden>
+                <div class="file-preview-thumb-wrap">
+                  <img id="file-preview-img" src="" alt="Selected file preview" class="file-preview-img" hidden>
+                  <span id="file-preview-icon" class="file-preview-icon" hidden><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg></span>
+                </div>
+                <div class="file-preview-info">
+                  <span class="file-preview-name" id="file-preview-name">filename.jpg</span>
+                  <span class="file-preview-size" id="file-preview-size">0 KB</span>
+                </div>
+                <button type="button" class="btn-remove-file" id="btn-remove-file" aria-label="Remove attached file">&times;</button>
+              </div>
+            </div>
+
+            <!-- Status Alerts -->
+            <div class="form-alert form-alert-error" id="form-error" role="alert" hidden>
+              Please enter your name, phone number, and a description of the problem.
+            </div>
+            <div class="form-alert form-alert-success" id="form-success" role="alert" hidden></div>
+
+            <!-- Action Buttons -->
+            <div class="form-actions-grid">
+              <button class="btn btn-primary btn-block btn-submit" type="submit" id="btn-submit-form">
+                <span class="btn-spinner" aria-hidden="true"></span>
+                <svg class="ic" aria-hidden="true"><use href="#i-mail"/></svg>
+                <span class="btn-text">Submit Service Request (Send to Email)</span>
+              </button>
+              <button class="btn btn-secondary btn-block btn-wa-submit" type="button" id="btn-submit-wa">
+                <svg class="ic" aria-hidden="true"><use href="#i-whatsapp"/></svg>
+                <span>Send via WhatsApp</span>
+              </button>
+            </div>
+
+            <p class="form-security-note">
+              <svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>
+              Direct delivery to <strong>info@saanvikatechnologies.com</strong> &bull; Response within 1-2 hours
+            </p>
           </form>
         </div>
 
@@ -888,7 +981,8 @@
         <h3>Contact</h3>
         <ul role="list">
           <li><a data-tel href="tel:+918886333367">+91 88863 33367</a></li>
-          <li><a data-wa href="https://wa.me/918886333367" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a data-wa href="https://wa.me/918886333367" target="_blank" rel="noopener">WhatsApp Support</a></li>
+          <li><a href="mailto:info@saanvikatechnologies.com"><svg class="ic" aria-hidden="true" style="width:14px;height:14px;display:inline-block;vertical-align:-2px;margin-right:6px;"><use href="#i-mail"/></svg>info@saanvikatechnologies.com</a></li>
           <li><a data-maps href="https://maps.app.goo.gl/uBvAg1Kp8fdG1vbHA?g_st=aw" target="_blank" rel="noopener">Google Maps</a></li>
         </ul>
       </div>
