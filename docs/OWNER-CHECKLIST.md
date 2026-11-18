@@ -1,4 +1,4 @@
-# Owner Approval Checklist
+﻿# Owner Approval Checklist
 
 Status of confirmed, active, and pending items for **SAANVIKA TECHNOLOGIES**.
 
@@ -7,7 +7,7 @@ Status of confirmed, active, and pending items for **SAANVIKA TECHNOLOGIES**.
 - [x] Business name: SAANVIKA TECHNOLOGIES
 - [x] Tagline: Reliable Tech. Clear Solutions.
 - [x] Categories: Full-stack IT Hardware, Security, Telecom & Network Infrastructure
-- [x] Address: Plot No. 401, Sri Gayatri Nivas, Near Big Basket, Chandrampalem, Srinivasa Nagar, Madhurawada, Visakhapatnam, Andhra Pradesh – 530041
+- [x] Address: Sri Gayatri Nivas, Near Big Basket, Chandrampalem, Srinivasa Nagar, Madhurawada, Visakhapatnam, Andhra Pradesh – 530041
 - [x] Phone and WhatsApp: +91 88863 33367
 - [x] Google Maps listing link & Geo coordinates: 17.8185, 83.3518
 - [x] Domain: www.saanvikatechnologies.com

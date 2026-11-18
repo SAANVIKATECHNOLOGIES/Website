@@ -9,7 +9,7 @@ window.SITE_CONFIG = {
     name: "SAANVIKA TECHNOLOGIES",
     tagline: "Reliable Tech. Clear Solutions.",
     address: [
-      "Plot No. 401, Sri Gayatri Nivas,",
+      "Sri Gayatri Nivas,",
       "Near Big Basket, Chandrampalem,",
       "Srinivasa Nagar, Madhurawada,",
       "Visakhapatnam, Andhra Pradesh – 530041, India"
